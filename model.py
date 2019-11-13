@@ -1,8 +1,7 @@
-# import necessary files
+ # import necessary files
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 from os import listdir
@@ -12,8 +11,8 @@ import pickle
 path = './'
 df = pd.read_csv(path+'train.csv')
 X = df[['ApplicantIncome', 'CoapplicantIncome']]
-y = df[['Loan_Status']].apply(LabelEncoder().fit_transform)
-y.shape
+y = df[['Loan_Status']].apply(lambda x: x.replace({"Y":1,"N":0}))
+print(y.shape)
 
 # split into test train
 X_train, X_test, y_train, y_test = train_test_split(X, np.ravel(y),
