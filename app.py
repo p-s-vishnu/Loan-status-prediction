@@ -2,7 +2,7 @@ from flask import Flask, request
 from flasgger import Swagger
 from pickle import load
 import pandas as pd
-
+import model
 
 file_name = './model.pkl'
 # read as binary
