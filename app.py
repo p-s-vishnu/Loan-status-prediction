@@ -54,7 +54,7 @@ def get_output():
     b = request.args.get('CoapplicantIncome')
 
     return str(clf.predict([[float(a), float(b)]]))
-
+  
 @app.route("/calculate_file", methods=['POST'])
 def get_file_output():
     df = pd.read_csv(request.files.get('input_file'),header=None)
