@@ -2,9 +2,8 @@ from flask import Flask, request
 from flasgger import Swagger
 from pickle import load
 import pandas as pd
-import model
 
-file_name = './model.pkl'
+file_name = './model/model.pkl'
 # read as binary
 with open(file_name, 'rb') as model_pkl:
     clf = load(model_pkl)

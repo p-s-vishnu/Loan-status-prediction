@@ -8,7 +8,7 @@ from os import listdir
 import pickle
 
 # load data
-path = './'
+path = '../data/'
 df = pd.read_csv(path+'train.csv')
 X = df[['ApplicantIncome', 'CoapplicantIncome']]
 y = df[['Loan_Status']].apply(lambda x: x.replace({"Y":1,"N":0}))
@@ -33,5 +33,5 @@ print(accuracy_score(y_test, predicted))
 
 # pickle the model
 # create a file object called model_pkl
-with open(path+'model.pkl', 'wb') as model_pkl:
+with open('model.pkl', 'wb') as model_pkl:
     pickle.dump(clf, model_pkl)
